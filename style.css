@@ -1,0 +1,7 @@
+#grid {
+    display: flex;
+}
+#display {
+    display: block;
+    block-size: 50px;
+}
