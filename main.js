@@ -40,39 +40,23 @@ document.getElementById("seven").addEventListener("click", Seven);
 document.getElementById("eight").addEventListener("click", Eight);
 document.getElementById("nine").addEventListener("click", Nine);
 document.getElementById("zero").addEventListener("click", Zero);
+var y= 0
+console.log(y)
+console.log(typeof(y))
 
-function add () {
-    let x = UserInput1 + UserInput2;
-    console.log(x);
-
+function Operation(){
+      var x = document.getElementById('display').textContent * 1
+      console.log(x)
+      if (y === 0){
+        y = x
+        document.getElementById('display').textContent = ""
+      }
+      else {
+        var z = x + y
+        document.getElementById('display').textContent = z
+        y = 0
+      }
+      
+      
 }
-function sub () {
-    let x = UserInput1 - UserInput2;
-    alert(x);
-
-}
-function times () {
-    let x = UserInput1 * UserInput2;
-    alert(x);
-
-}
-function divide () {
-    let x = UserInput1 / UserInput2;
-    alert (x);
-
-}
-
-
-
-//if (operate == "/"){
-  //  divide ();
-//}
-//else if (operate == "*"){
-//    times();
-//}
-//else if (operate == "+"){
-  //  add();
-//}
-//else if (operate == "-"){
-  //  sub();
-//}
+document.getElementById('operation').addEventListener('click', Operation)
