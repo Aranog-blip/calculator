@@ -44,19 +44,63 @@ var y= 0
 console.log(y)
 console.log(typeof(y))
 
-function Operation(){
-      var x = document.getElementById('display').textContent * 1
-      console.log(x)
-      if (y === 0){
-        y = x
-        document.getElementById('display').textContent = ""
-      }
-      else {
-        var z = x + y
-        document.getElementById('display').textContent = z
-        y = 0
-      }
-      
-      
+function OperationPlus(){
+    var x = document.getElementById('display').textContent * 1
+    console.log(x)
+  if (y === 0){
+    y = x
+    document.getElementById('display').textContent = ""
+    }
+  else {
+    var z = x + y
+    document.getElementById('display').textContent = z
+    y = 0
+  }}
+function OperationMinus(){
+    var x = document.getElementById('display').textContent * 1
+    console.log(x)
+  if (y === 0){
+    y = x
+    document.getElementById('display').textContent = ""
+  }
+  else {
+    var z = y - x
+    document.getElementById('display').textContent = z
+    y = 0
+  }}
+function OperationTimes(){
+    var x = document.getElementById('display').textContent * 1
+    console.log(x)
+  if (y === 0){
+    y = x
+    document.getElementById('display').textContent = ""
+  }
+  else {
+    var z = x * y
+    document.getElementById('display').textContent = z
+    y = 0
+  }}
+function OperationDivide(){
+  var x = document.getElementById('display').textContent * 1
+  console.log(x)
+  if (y === 0){
+    y = x
+    document.getElementById('display').textContent = ""
+  }
+  else if (document.getElementById('operation=').addEventListener('click', OperationEqual)){
+    var z = y/x
+    document.getElementById('display').textContent = z
+    y = 0
+  }
+  else {{
+      var z = y/x
+      document.getElementById('display').textContent = z
+      y = 0
+    }
+  }
 }
-document.getElementById('operation').addEventListener('click', Operation)
+
+document.getElementById('operation+').addEventListener('click', OperationPlus)
+document.getElementById('operation-').addEventListener('click', OperationMinus)
+document.getElementById('operation*').addEventListener('click', OperationTimes)
+document.getElementById('operation/').addEventListener('click', OperationDivide)
