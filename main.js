@@ -29,6 +29,9 @@ function One(){
   function Zero(){
     document.getElementById("display").innerHTML += 0;
   };
+  function Dot(){
+    document.getElementById('display').innerHTML += ".";
+  }
 
 document.getElementById("one").addEventListener("click", One);
 document.getElementById("two").addEventListener("click", Two);
@@ -40,67 +43,63 @@ document.getElementById("seven").addEventListener("click", Seven);
 document.getElementById("eight").addEventListener("click", Eight);
 document.getElementById("nine").addEventListener("click", Nine);
 document.getElementById("zero").addEventListener("click", Zero);
-var y= 0
-console.log(y)
-console.log(typeof(y))
+var y= 0;
+var x = 0;
+document.getElementById('operation+').addEventListener('click', OperationPlus);
+document.getElementById('operation-').addEventListener('click', OperationMinus);
+document.getElementById('operation*').addEventListener('click', OperationTimes);
+document.getElementById('operation/').addEventListener('click', OperationDivide);
+document.getElementById('operation=').addEventListener('click', OperationEqual);
+document.getElementById('operationC').addEventListener('click', OperationC);
+document.getElementById('dot').addEventListener('click', Dot)
 
-function OperationPlus(){
-    var x = document.getElementById('display').textContent * 1
-    console.log(x)
-  if (y === 0){
-    y = x
-    document.getElementById('display').textContent = ""
-    }
-  else {
-    var z = x + y
-    document.getElementById('display').textContent = z
-    y = 0
-  }}
-function OperationMinus(){
-    var x = document.getElementById('display').textContent * 1
-    console.log(x)
-  if (y === 0){
-    y = x
-    document.getElementById('display').textContent = ""
-  }
-  else {
-    var z = y - x
-    document.getElementById('display').textContent = z
-    y = 0
-  }}
-function OperationTimes(){
-    var x = document.getElementById('display').textContent * 1
-    console.log(x)
-  if (y === 0){
-    y = x
-    document.getElementById('display').textContent = ""
-  }
-  else {
-    var z = x * y
-    document.getElementById('display').textContent = z
-    y = 0
-  }}
-function OperationDivide(){
-  var x = document.getElementById('display').textContent * 1
-  console.log(x)
-  if (y === 0){
-    y = x
-    document.getElementById('display').textContent = ""
-  }
-  else if (document.getElementById('operation=').addEventListener('click', OperationEqual)){
-    var z = y/x
-    document.getElementById('display').textContent = z
-    y = 0
-  }
-  else {{
-      var z = y/x
-      document.getElementById('display').textContent = z
-      y = 0
-    }
-  }
+function OperationPlus () {
+  document.getElementById('displayOperation').textContent = "+";
+  x = document.getElementById('display').textContent * 1;
+  document.getElementById('display').textContent = '';
+}
+function OperationMinus () {
+  document.getElementById('displayOperation').textContent = "-";
+  x = document.getElementById('display').textContent * 1;
+  document.getElementById('display').textContent = '';
+}
+function OperationTimes () {
+  document.getElementById('displayOperation').textContent = "*";
+  x = document.getElementById('display').textContent * 1;
+  document.getElementById('display').textContent = '';
+}
+function OperationDivide () {
+  document.getElementById('displayOperation').textContent = "/";
+  x = document.getElementById('display').textContent * 1;
+  document.getElementById('display').textContent = '';
 }
 
-document.getElementById('operation+').addEventListener('click', OperationPlus)
-document.getElementById('operation-').addEventListener('click', OperationMinus)
-document.getElementById('operation*').addEventListener('click', OperationTimes)
-document.getElementById('operation/').addEventListener('click', OperationDivide)
+function OperationEqual () {
+  y = document.getElementById('display').textContent * 1;
+  if (document.getElementById('displayOperation').textContent == '+') {
+    var z = x + y;
+    document.getElementById('display').textContent = z;
+  }
+  else if (document.getElementById('displayOperation').textContent =='-') {
+    var z = x - y;
+    document.getElementById('display').textContent = z;   
+  }
+  else if (document.getElementById('displayOperation').textContent == '*') {
+    var z = x * y;
+    document.getElementById('display').textContent = z;   
+  }
+  else if (document.getElementById('displayOperation').textContent == '/') {
+    var z = x / y;
+    document.getElementById('display').textContent = z;   
+  }
+  else {
+    document.getElementById('display').textContent = 'ERROR!'; 
+  }
+}
+function OperationC () {
+  document.getElementById('display').textContent = '';
+  document.getElementById('displayOperation').textContent = '';
+  x = 0;
+  y = 0;
+  z = 0;
+}

@@ -5,3 +5,7 @@
     display: block;
     block-size: 50px;
 }
+#displayOperations {
+    display: block;
+    block-size: 20px;
+}
